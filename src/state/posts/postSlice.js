@@ -16,7 +16,7 @@ const getPosts = createAsyncThunk("getPosts", async(page = 0, thunkAPI) => {
     
     return res.data;
   }catch(e){
-    thunkAPI.rejectWithValue(e.message);
+   return thunkAPI.rejectWithValue(e.message);
   }
 })
 
@@ -25,7 +25,7 @@ const uploadPost = createAsyncThunk("upload", async(form, thunkAPI) => {
         const res = await fetchAPI("post", "/post", { ...form }); 
         return res.data;
       }catch(e){
-        thunkAPI.rejectWithValue(e.message);
+        return thunkAPI.rejectWithValue(e.message);
       }
 })
 

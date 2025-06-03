@@ -10,7 +10,7 @@ import Iterator from '../components/utils/iterator.jsx';
 import Post from '../components/jsx/post.jsx';
 const Homepage = () => {
 const { fetchPosts } = usePostActions();
-const { posts, totalPost, loading, isLastPage } = useSelector(state => state.posts);
+const { posts, totalPost, loading, error, isLastPage } = useSelector(state => state.posts);
 const dispatch = useDispatch();
 const [page, setPage] = useState(0);
 
@@ -61,7 +61,7 @@ return <div className = "w-full flex flex-col gap-3 my-8">
   <Iterator list = {posts} Child = {Post} />
   <div className = "w-full flex justify-center my-4">
     {
-      isLastPage ? <button onClick = {handleScrollTop} className = "text-black/50">You've reached the end</button> : loading && <MoonLoader size = "25" />
+      error ? <p className = "text-red-400 text-sm">Something unexpected occured</p> : isLastPage ? <button onClick = {handleScrollTop} className = "text-black/50">You've reached the end</button> : loading && <MoonLoader size = "25" />
     }
   </div>
 </div>
