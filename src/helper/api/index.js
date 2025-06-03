@@ -9,9 +9,9 @@ export const fetchAPI = async(type, route, payload = {}) => {
     const url = `${import.meta.env.VITE_SERVER_URL}/api${route}`;
     
     const res = await axios[type](url, payload);
-  
+  console.log(res)
     return res;
   }catch(e){
-  
+  console.log(route, e)
   }
 }
