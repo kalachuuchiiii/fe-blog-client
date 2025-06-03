@@ -35,6 +35,9 @@ const postSlice = createSlice({
   reducers: { 
     clearError: (state) => {
       state.error = false;
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload
     }
   }, 
   extraReducers: (builder) => {
@@ -77,5 +80,5 @@ export const actions = {
   uploadPost
 }
 
-export const { clearError, setIsLastPage } = postSlice.actions;
+export const { clearError, setLoading } = postSlice.actions;
 export default postSlice.reducer;

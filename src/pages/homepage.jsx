@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { usePostActions } from '../state/posts/usePostActions.js'
 import { isBottom } from '../helper/page/index.js';
 import { handleScrollTop } from '../helper/scroll/index.js';
-import { setIsLastPage } from '../state/posts/postSlice.js'
+import { setLoading } from '../state/posts/postSlice.js'
 import { MoonLoader } from 'react-spinners';
 import { NavLink } from 'react-router-dom';
 import Iterator from '../components/utils/iterator.jsx';
@@ -27,7 +27,9 @@ const fetchData = async(page = 0) => {
 useEffect(() => {
   if(isLastPage) return;
   fetchData(0);
-  
+  return()=>{
+    dispatch(setLoading(false))
+  }
 }, []);
 
 useEffect(() => {
