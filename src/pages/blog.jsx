@@ -36,8 +36,8 @@ const BlogPage = () => {
   const [year = 1999, month = 1, date = 1] = info?.createdAt?.split("T")[0]?.split("-")?.map(Number) || [1999,1,1]
 
   return <div className="my-8 grid gap-2">
-    <div className="w-full h-40 bg-gradient-to-tr from-zinc-500 to-zinc-400 ">
-      <img alt = {info?.url} className="w-full h-full rounded-lg object-cover" src={info?.url} />
+    <div className="w-full h-40 bg-gradient-to-tr from-zinc-500 to-zinc-400 rounded-lg overflow-hidden ">
+      <img alt = {info?.url} className="w-full h-full  object-cover" src={info?.url} />
     </div>
     <div className="grid gap-2">
 
